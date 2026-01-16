@@ -41,13 +41,13 @@ fn run_game (no_swap_total: &mut i32, swap_total: &mut i32, rng: &mut ThreadRng,
 
     let montys_options: Vec<i8> = goats.into_iter().filter(|x| *x != players_choice).collect();
     let montys_choice = *montys_options.choose(rng).unwrap();
-        if debug { println!("Monty's options are {montys_options:?} and he chooses {montys_choice:?}") };
+    if debug { println!("Monty's options are {montys_options:?} and he chooses {montys_choice:?}") };
 
     let player_options: Vec<i8> = (0..=2).filter(|x| {
         *x != montys_choice && *x != players_choice
     }).collect();
     let player_option: i8 = *player_options.first().unwrap();
-            if debug { println!("Player's options are {player_options:?}") };
+    if debug { println!("Player's options are {player_options:?}") };
 
     #[allow(clippy::cast_sign_loss)]
     let player_wins_with_no_swap = boxes[players_choice as usize] == Car;
